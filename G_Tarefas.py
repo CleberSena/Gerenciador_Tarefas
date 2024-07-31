@@ -7,9 +7,18 @@ criarsql = """CREATE TABLE tb_Gerenciador_de_Tarefas(
         )"""
 
 vcon = ConexaoBanco()
-CriarTabela(vcon, criarsql)
-vcon.close()
-sl(1)
-start = cabeçalho()
-section = menu()
+tabela_existe = check_table_exists(vcon, 'tb_Gerenciador_de_Tarefas')
+
+if tabela_existe:
+    print('\033[;33mA tabela já foi criada anteriormente')
+    sl(3)
+else:
+    CriarTabela(vcon, criarsql)
+    print('\033[;32mA tabela foi criada com sucesso')
+    sl(3)
+
+# executar programa
+os.system('cls')
+cabeçalho()
+menu()
 os.system('cls')
