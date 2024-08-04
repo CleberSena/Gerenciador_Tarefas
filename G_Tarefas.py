@@ -19,6 +19,7 @@ else:
 
 # executar programa
 os.system('cls')
-cabeçalho()
-menu()
+
+menu(vcon)
+
 os.system('cls')
